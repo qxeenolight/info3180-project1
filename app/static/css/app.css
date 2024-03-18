@@ -1,11 +1,191 @@
 body {
     padding-top: 5rem;
+    background-color: #efefef;
 }
 
-.form-floating {
-    padding-bottom: 20px;
-    width: 600px;
-    height: 80px;
+/* ------------ Syle for Property Form ----------- */
+.form-group {
+    width: 700px;
+    padding: 40px;
+    margin-top: 30px;
+    background-color: white;
 }
 
-/* --------------------- */
+.form-special {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-section .form-label {
+    font-weight: bold;
+}
+
+.room {
+    width: 300px;
+}
+
+.desc {
+    height: 100px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #9d9d9d;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    font-weight: normal;
+}
+
+.custom-file-upload:hover {
+    background-color: #888;
+    color: white;
+}
+/* ----------------------------------------------- */
+
+
+/* ----------- Syle for Properties Page ---------- */
+.property-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.property-item {
+    position: relative;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.property-image {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.property-item h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    padding: 5px 10px 0 10px;
+}
+
+.property-item p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+    padding: 0 10px 0 10px;
+}
+
+.property-price {
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.property-item .btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height:45px;
+    background-color: #22b691; /* Blue background */
+    color: white; /* White text */
+    border-radius: 3px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.property-item .btn:hover {
+    background-color: #1e9375; /* Darker blue on hover */
+}
+/* ----------------------------------------------- */
+
+
+/* --------- Syle for A Property Listing --------- */
+.property-details {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 80px;
+}
+
+.property-image2 {
+    width: 700px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.property-details-content {
+    padding: 30px;
+    flex: 1;
+}
+
+.property-details h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.property-type {
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #efc019;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.property-details p {
+    margin-bottom: 10px;
+    font-size: 1.15em;
+}
+
+.property-description {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.room-bathroom {
+    display: inline-block;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+
+.room-bathroom i {
+    padding-right: 6px;
+}
+
+.property-details .btn {
+    font-size: 1.15em;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #22b691;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.property-details .btn:hover {
+    background-color: #1e9375;
+}
+/* ----------------------------------------------- */

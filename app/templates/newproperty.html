@@ -7,49 +7,55 @@
     {{ form.csrf_token }}
     
     <div class="form-group">
-        {{ form.title.label }}
-        <div class="form-floating">
+        <div class="form-section">
+            {{ form.title.label(class="form-label", for="photo") }}
             {{ form.title(class="form-control") }}
         </div>
-
-        {{ form.description.label }}
-        <div class="form-floating">
-            {{ form.description(class="form-control") }}
+        
+        <div class="form-section">
+            {{ form.description.label(class="form-label", for="photo") }}
+            {{ form.description(class="form-control desc") }}
         </div>
 
-        {{ form.numrooms.label }}
-        <div class="form-floating">
-            {{ form.numrooms(class="form-control") }}
+        <div class="form-special">
+            <div class="form-section">
+                {{ form.numrooms.label(class="form-label", for="photo") }}
+                {{ form.numrooms(class="form-control room") }}
+            </div>
+
+            <div class="form-section">
+                {{ form.numbathrooms.label(class="form-label", for="photo") }}
+                {{ form.numbathrooms(class="form-control room") }}
+            </div>
+            
+            <div class="form-section">
+                {{ form.price.label(class="form-label", for="photo") }}
+                {{ form.price(class="form-control room") }}
+            </div>
+
+            <div class="form-section">
+                {{ form.propertytype.label(class="form-label", for="photo") }}
+                {{ form.propertytype(class="form-control room") }}
+            </div>
         </div>
 
-
-        {{ form.numbathrooms.label }}
-        <div class="form-floating">
-            {{ form.numbathrooms(class="form-control") }}
+        <div class="form-section">
+            {{ form.location.label(class="form-label", for="photo") }}
+            {{ form.location(class="form-control room") }}
         </div>
 
-        {{ form.price.label }}
-        <div class="form-floating">
-            {{ form.price(class="form-control") }}
+        <div class="form-section">
+            {{ form.photo.label(class="form-label", for="photo") }}
+            <br>
+            <label for="file-upload" class="custom-file-upload">
+                Browse
+            </label>
+            <br>
+            {{ form.photo(class="form-control", id="file-upload", style="display: none") }}            
         </div>
 
-        {{ form.propertytype.label }}
-        <div class="form-floating">
-            {{ form.propertytype(class="form-control") }}
-        </div>
-
-        {{ form.location.label }}
-        <div class="form-floating">
-            {{ form.location(class="form-control") }}
-        </div>
-
-        {{ form.photo.label(class="form-label", for="photo") }}
-        <div class="form-floating">
-            {{ form.photo(class="form-control") }}
-        </div>
+        <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
     </div>
-
-    <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
 </form>
 
 {% endblock %}

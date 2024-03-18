@@ -5,14 +5,11 @@
 <ul class="property-list">
     {% for property in properties %}
     <li class="property-item">
-        <h2>{{ property.title }}</h2>
-        <p><strong>Location:</strong> {{ property.location }}</p>
-        <p><strong>Number of Rooms:</strong> {{ property.numrooms }}</p>
-        <p><strong>Number of Bathrooms:</strong> {{ property.numbathrooms }}</p>
-        <p><strong>Type:</strong> {{ property.property_type }}</p>
-        <p><strong>Price:</strong> {{ property.price }}</p>
-        <p><strong>Description:</strong> {{ property.description }}</p>
         <img src="{{ property.get_image_url() }}" alt="{{ property.title }}" class="property-image">    
+        <h2>{{ property.title }}</h2>
+        <p><i class="bi bi-geo-alt"></i> {{ property.location }}</p>
+        <p><span class="property-price">{{ property.price }}</span></p>
+        <div class="btn">View Property</div>
     </li>
     {% endfor %}
 </ul>

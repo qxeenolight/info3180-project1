@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired
 
 class PropertyForm(FlaskForm):
     # Text Fields
-    title = StringField('Title', validators=[InputRequired()])
+    title = StringField('Property Title', validators=[InputRequired()])
     location = StringField('Location', validators=[InputRequired()])    
     numrooms = StringField('No. of Rooms', validators=[InputRequired()])
     numbathrooms = StringField('No. of Bathrooms', validators=[InputRequired()])

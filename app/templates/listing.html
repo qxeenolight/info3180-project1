@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block main %}
-<img src="{{ property.get_image_url() }}" alt="{{ property.title }}" class="property-image">    
-<h1>{{ property.title }}</h1>
-<p><strong>Price:</strong> {{ property.price }}</p>
-<p><strong>Type:</strong> {{ property.ty }}</p>
-
-<p><strong>Location:</strong> {{ property.location }}</p>
-<p><strong>Number of Rooms:</strong> {{ property.numrooms }}</p>
-<p><strong>Number of Bathrooms:</strong> {{ property.numbathrooms }}</p>
-<p><strong>Description:</strong> {{ property.description }}</p>
+<div class="property-details">
+    <img src="{{ property.get_image_url() }}" alt="{{ property.title }}" class="property-image2">    
+    <div class="property-details-content">
+        <h1>{{ property.title }}</h1>
+        <p class="property-price">{{ property.price }}</p>
+        <p class="property-type">{{ property.property_type }}</p>
+        <p class="property-description">{{ property.description }}</p>
+        <p class="room-bathroom"><i class="bi bi-door-open"></i>{{ property.numrooms }} Bedrooms</p>
+        <p class="room-bathroom"><i class="bi bi-water"></i>{{ property.numbathrooms }} Bathrooms</p>
+        <p><i class="bi bi-geo-alt"></i> {{ property.location }}</p>
+        <div class="btn">Email Realtor</div>
+    </div>
+</div>
 {% endblock %}
