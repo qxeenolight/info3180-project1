@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block main %}
+<img src="{{ property.get_image_url() }}" alt="{{ property.title }}" class="property-image">    
+<h1>{{ property.title }}</h1>
+<p><strong>Price:</strong> {{ property.price }}</p>
+<p><strong>Type:</strong> {{ property.ty }}</p>
+
+<p><strong>Location:</strong> {{ property.location }}</p>
+<p><strong>Number of Rooms:</strong> {{ property.numrooms }}</p>
+<p><strong>Number of Bathrooms:</strong> {{ property.numbathrooms }}</p>
+<p><strong>Description:</strong> {{ property.description }}</p>
+{% endblock %}

@@ -5,9 +5,13 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
 
-from app import app
-from flask import render_template, request, redirect, url_for
+import os
+from app import app, db
+from flask import render_template, request, redirect, url_for, flash
 
+from app.forms import PropertyForm
+from app.models import Property
+from werkzeug.utils import secure_filename, send_from_directory
 
 ###
 # Routing for your application.
@@ -18,11 +22,55 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-
 @app.route('/about/')
 def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
+
+
+# -------------------------------------------
+@app.route('/properties')
+def properties():
+    """Render website's properties page"""
+    properties = Property.query.all()
+    return render_template('properties.html', properties=properties)
+
+@app.route('/properties/create', methods=['POST', 'GET'])
+def create():
+    """Render website's new property page."""
+    form = PropertyForm() # Initialize Form
+    if form.validate_on_submit():   
+        # Create a new Property object with the form data
+        file = form.photo.data
+
+        new_property = Property(
+            title=form.title.data,
+            location=form.location.data,
+            numrooms=form.numrooms.data,
+            numbathrooms=form.numbathrooms.data,
+            price=form.price.data,
+            property_type=form.propertytype.data,
+            description=form.description.data,
+            filename=secure_filename(file.filename)
+        )
+
+        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+        db.session.add(new_property)
+        db.session.commit()
+        flash('Property Added Successfully', 'success')
+
+        return redirect(url_for('properties'))
+    return render_template('newproperty.html', form = form)
+
+@app.route('/properties/<propertyid>')
+def listing(propertyid):
+    """Render a property"""
+    property = Property.query.get(propertyid)
+    if property is None:
+        page_not_found(400)  # Return a 404 error if property not found
+    return render_template('listing.html', property=property)
+# -------------------------------------------
 
 
 ###
